@@ -32,7 +32,7 @@ app.use(AuthRoutes)
 app.use(ProductRoutes)
 
 
-mongoose.connect("mongodb+srv://webcoder292:sysc2Ct3GnSjctJX@cluster0.cuwacpg.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect("", {
   useNewUrlParser: true,
 }, () => console.log("mongo db connected"));
 
