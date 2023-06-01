@@ -36,7 +36,7 @@ app.use(AuthRoutes)
 app.use(ProductRoutes)
 
 
-connect("mongodb+srv://webcoder292:4QfeF4G2ioE2YdDC@cluster0.cuwacpg.mongodb.net/?retryWrites=true&w=majority")
+connect(process.env.MONGO_URL)
   .then(() => console.log('Connected Successfully'))
   .catch(error => console.log('Failed to connect', error))
 
