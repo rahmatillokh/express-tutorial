@@ -4,7 +4,8 @@ import { fileURLToPath } from "url";
 import { engine, create } from "express-handlebars";
 import * as dotenv from "dotenv"
 import { connect } from "mongoose"
-
+import flash from "connect-flash"
+import session from "express-session";
 
 // ROUTES
 import AuthRoutes from "./routes/auth.js"
@@ -28,6 +29,8 @@ app.set("views", "./views");
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"))
 app.use(express.json())
+app.use(session({ secret: "Khon", resave: false, saveUninitialized: false }))
+app.use(flash())
 
 app.use(AuthRoutes)
 app.use(ProductRoutes)
