@@ -2,8 +2,9 @@ import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import { engine, create } from "express-handlebars";
-import mongoose, { MongooseError } from "mongoose";
 import * as dotenv from "dotenv"
+import { connect } from "mongoose"
+
 
 // ROUTES
 import AuthRoutes from "./routes/auth.js"
@@ -32,9 +33,9 @@ app.use(AuthRoutes)
 app.use(ProductRoutes)
 
 
-mongoose.connect("", {
-  useNewUrlParser: true,
-}, () => console.log("mongo db connected"));
+connect("mongodb+srv://webcoder292:4QfeF4G2ioE2YdDC@cluster0.cuwacpg.mongodb.net/?retryWrites=true&w=majority")
+  .then(() => console.log('Connected Successfully'))
+  .catch(error => console.log('Failed to connect', error))
 
 
 const PORT = process.env.PORT || 4100;
