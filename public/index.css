@@ -1,0 +1,26 @@
+.index__col {
+    height: 100%;
+}
+
+.index-image {
+    height: 300px;
+    object-fit: contain;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.avatar p {
+    padding: 0;
+    margin: 0;
+}

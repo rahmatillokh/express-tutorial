@@ -1,1 +1,32 @@
-<h1>Main Page</h1>
+{{#if products.length}}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    {{#each products}}
+    <div class="col index__col">
+        <div class="card shadow-sm">
+            <img class="index-image" src={{image}} alt="">
+            <div class="card-body">
+                <p class="card-text fw-medium">{{truncate title 36}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="p-0 m-0">{{formatDate createdAt}}</p>
+                    <small class="fs-5">{{price}}.00 $</small>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                    <a type="button" class="btn btn-outline-primary" href="/product/{{_id}}">Detail</a>
+                    {{#if @root.token}}
+                    {{#ifequal user @root.userID}}
+                    <button type="button" class="btn btn-outline-secondary">Edit</button>
+                    <button type="button" class="btn btn-outline-danger">Delete</button>
+                    {{/ifequal}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<h2>No Product</h2>
+{{/if}}
